@@ -50,6 +50,13 @@ const Hero = () => {
     return () => clearInterval(timer);
   }, []);
 
+  const [scrollY, setScrollY] = useState(0);
+  useEffect(() => {
+    const onScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background slider */}
@@ -62,6 +69,7 @@ const Hero = () => {
             backgroundImage: `url(${slide.img})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
+            transform: `translateY(${scrollY * 0.3}px)`,
           }}
         />
       ))}

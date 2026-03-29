@@ -3,46 +3,58 @@ import Icon from '@/components/ui/icon';
 
 const cars = [
   {
-    name: 'Toyota Land Cruiser 200',
-    seats: '4+1 пассажира',
-    features: ['Клиренс 225 мм', 'Полный привод 4x4', 'Кондиционер, печка'],
+    name: 'Lincoln Navigator',
+    seats: '7+1 пассажиров',
+    features: ['Премиум-комфорт', 'Полный привод 4x4', 'Кондиционер, климат-контроль'],
     tag: 'Флагман',
     tagColor: '#E6A817',
+    img: 'https://cdn.poehali.dev/projects/539e3d76-197f-4d49-8166-a42a2f32d407/files/cd1ad5e8-3b71-4e52-ab09-5a2a6f9f9e11.jpg',
+    specs: { clearance: '254 мм', drive: 'Полный привод', power: '450 л.с.' },
   },
   {
-    name: 'Mitsubishi Pajero Sport',
-    seats: '5 пассажиров',
-    features: ['Полный привод', 'Кондиционер', 'Широкий салон'],
-    tag: 'Популярный',
+    name: 'Land Rover Discovery III',
+    seats: '6+1 пассажиров',
+    features: ['Полный привод', 'Кондиционер', 'Просторный салон'],
+    tag: 'Надёжность',
     tagColor: '#4A9B7F',
+    img: 'https://cdn.poehali.dev/projects/539e3d76-197f-4d49-8166-a42a2f32d407/files/533b880a-1adb-4e24-9241-967e4fc06c6b.jpg',
+    specs: { clearance: '210 мм', drive: 'Полный привод', power: '190 л.с.' },
   },
   {
-    name: 'Hyundai H-1 Минивэн',
+    name: 'Hyundai H-1',
     seats: '8 пассажиров',
-    features: ['8 мест', 'Просторный салон', 'Идеал для компаний'],
+    features: ['8 мест', 'Просторный салон', 'Идеален для компаний'],
     tag: 'Для группы',
     tagColor: '#1A6A9B',
+    img: 'https://cdn.poehali.dev/projects/539e3d76-197f-4d49-8166-a42a2f32d407/files/0a1cc44d-75e3-4a0d-9ec3-4d6357a1364b.jpg',
+    specs: { clearance: '175 мм', drive: 'Задний привод', power: '170 л.с.' },
   },
   {
     name: 'UAZ Patriot',
     seats: '4+1 пассажира',
-    features: ['Клиренс 205 мм', 'Внедорожный', 'Для смелых маршрутов'],
+    features: ['Клиренс 210 мм', 'Внедорожный', 'Для смелых маршрутов'],
     tag: 'Приключение',
     tagColor: '#9B4A1A',
+    img: 'https://cdn.poehali.dev/projects/539e3d76-197f-4d49-8166-a42a2f32d407/files/41036e3e-1839-4945-a78e-08b345d56a27.jpg',
+    specs: { clearance: '210 мм', drive: 'Полный привод', power: '150 л.с.' },
   },
   {
-    name: 'Kia Mohave',
+    name: 'Toyota Land Cruiser Prado 150',
     seats: '5 пассажиров',
-    features: ['Мощный двигатель', 'Комфорт-пакет', 'Плавный ход'],
+    features: ['Комфорт и мощь', 'Климат-контроль', 'Плавный ход'],
     tag: 'Комфорт',
     tagColor: '#4A1A9B',
+    img: 'https://cdn.poehali.dev/projects/539e3d76-197f-4d49-8166-a42a2f32d407/files/b242c2a1-cf99-4100-b589-0a37c02140da.jpg',
+    specs: { clearance: '215 мм', drive: 'Полный привод', power: '249 л.с.' },
   },
   {
-    name: 'Nissan Patrol',
-    seats: '5 пассажиров',
-    features: ['Надёжность', 'V8 двигатель', 'Горные дороги'],
-    tag: 'Надёжность',
+    name: 'Mercedes-Benz GL-Class',
+    seats: '6 пассажиров',
+    features: ['Немецкая надёжность', 'Премиум-салон', 'Горные дороги'],
+    tag: 'Премиум',
     tagColor: '#1A4A6B',
+    img: 'https://cdn.poehali.dev/projects/539e3d76-197f-4d49-8166-a42a2f32d407/files/3edba8ad-b8d1-4b9e-a478-7d9ee053f0d0.jpg',
+    specs: { clearance: '217 мм', drive: 'Полный привод', power: '340 л.с.' },
   },
 ];
 
@@ -71,71 +83,72 @@ const Cars = () => {
         <div className="text-center mb-12">
           <span className="text-[#E6A817] text-sm font-bold tracking-widest uppercase mb-3 block">Парк автомобилей</span>
           <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
-            Наши авто
+            Наши подготовленные внедорожники
           </h2>
-          <p className="text-white/60 text-lg">6 подготовленных внедорожников и минивэнов</p>
+          <p className="text-white/60 text-lg">6 автомобилей для комфортного путешествия по горам</p>
         </div>
 
-        {/* Desktop grid */}
         <div className="hidden md:grid grid-cols-3 gap-5">
           {cars.map((car, idx) => (
             <div
               key={idx}
-              className="glass-card rounded-2xl p-6 hover:border-[#E6A817]/50 transition-all cursor-pointer group hover:shadow-[0_0_25px_rgba(230,168,23,0.15)]"
+              className="glass-card rounded-2xl overflow-hidden hover:border-[#E6A817]/50 transition-all cursor-pointer group hover-lift"
               onMouseEnter={() => setHoveredIdx(idx)}
               onMouseLeave={() => setHoveredIdx(null)}
             >
-              {/* Car icon with hover effect */}
-              <div className="relative flex items-center justify-center h-32 mb-5">
-                <div className={`transition-transform duration-300 ${hoveredIdx === idx ? 'scale-110' : ''}`}>
-                  <svg viewBox="0 0 120 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-32 h-16">
-                    <rect x="10" y="25" width="100" height="22" rx="4" fill="#1A4A6B"/>
-                    <path d="M20 25 L32 8 L88 8 L100 25" fill="#0B1A33" stroke="#E6A817" strokeWidth="1.5"/>
-                    <rect x="35" y="11" width="22" height="12" rx="2" fill="#1A6A9B" opacity="0.8"/>
-                    <rect x="63" y="11" width="22" height="12" rx="2" fill="#1A6A9B" opacity="0.8"/>
-                    <circle cx="30" cy="47" r="9" fill="#0B1A33" stroke="#E6A817" strokeWidth="2"/>
-                    <circle cx="30" cy="47" r="4" fill="#E6A817"/>
-                    <circle cx="90" cy="47" r="9" fill="#0B1A33" stroke="#E6A817" strokeWidth="2"/>
-                    <circle cx="90" cy="47" r="4" fill="#E6A817"/>
-                    <rect x="8" y="29" width="10" height="6" rx="2" fill="#E6A817" opacity={hoveredIdx === idx ? 1 : 0.3}/>
-                    <rect x="102" y="29" width="10" height="6" rx="2" fill="#E6A817" opacity="0.3"/>
-                    {hoveredIdx === idx && (
-                      <>
-                        <circle cx="14" cy="32" r="8" fill="#E6A817" opacity="0.15"/>
-                        <circle cx="14" cy="32" r="5" fill="#E6A817" opacity="0.1"/>
-                      </>
-                    )}
-                  </svg>
+              <div className="relative h-48 overflow-hidden">
+                <img
+                  src={car.img}
+                  alt={car.name}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0B1A33] via-transparent to-transparent" />
+                <div
+                  className="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold"
+                  style={{ backgroundColor: car.tagColor + '30', color: car.tagColor, border: `1px solid ${car.tagColor}40` }}
+                >
+                  {car.tag}
                 </div>
               </div>
 
-              {/* Tag */}
-              <div
-                className="inline-block px-3 py-1 rounded-full text-xs font-bold mb-3 text-white"
-                style={{ backgroundColor: car.tagColor + '30', color: car.tagColor, border: `1px solid ${car.tagColor}40` }}
-              >
-                {car.tag}
+              <div className="p-5">
+                <h3 className="text-white font-bold text-lg mb-1">{car.name}</h3>
+                <p className="text-[#E6A817] text-sm mb-3 flex items-center gap-1">
+                  <Icon name="Users" size={14} />
+                  {car.seats}
+                </p>
+
+                <ul className="space-y-1.5 mb-4">
+                  {car.features.map((f, i) => (
+                    <li key={i} className="flex items-center gap-2 text-white/60 text-sm">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#E6A817]" />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+
+                {hoveredIdx === idx && (
+                  <div className="border-t border-white/10 pt-3 mt-3 space-y-1.5 animate-fade-in">
+                    <div className="flex justify-between text-xs">
+                      <span className="text-white/40">Клиренс</span>
+                      <span className="text-white/70 font-semibold">{car.specs.clearance}</span>
+                    </div>
+                    <div className="flex justify-between text-xs">
+                      <span className="text-white/40">Привод</span>
+                      <span className="text-white/70 font-semibold">{car.specs.drive}</span>
+                    </div>
+                    <div className="flex justify-between text-xs">
+                      <span className="text-white/40">Мощность</span>
+                      <span className="text-white/70 font-semibold">{car.specs.power}</span>
+                    </div>
+                  </div>
+                )}
               </div>
-
-              <h3 className="text-white font-bold text-lg mb-1">{car.name}</h3>
-              <p className="text-[#E6A817] text-sm mb-3 flex items-center gap-1">
-                <Icon name="Users" size={14} />
-                {car.seats}
-              </p>
-
-              <ul className="space-y-1.5">
-                {car.features.map((f, i) => (
-                  <li key={i} className="flex items-center gap-2 text-white/60 text-sm">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#E6A817]" />
-                    {f}
-                  </li>
-                ))}
-              </ul>
             </div>
           ))}
         </div>
 
-        {/* Mobile carousel */}
         <div
           ref={scrollRef}
           className="md:hidden flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide cursor-grab active:cursor-grabbing select-none"
@@ -148,27 +161,38 @@ const Cars = () => {
           {cars.map((car, idx) => (
             <div
               key={idx}
-              className="flex-shrink-0 w-72 glass-card rounded-2xl p-6 snap-center"
+              className="flex-shrink-0 w-72 glass-card rounded-2xl overflow-hidden snap-center"
             >
-              <div
-                className="inline-block px-3 py-1 rounded-full text-xs font-bold mb-3"
-                style={{ backgroundColor: car.tagColor + '30', color: car.tagColor, border: `1px solid ${car.tagColor}40` }}
-              >
-                {car.tag}
+              <div className="relative h-40 overflow-hidden">
+                <img
+                  src={car.img}
+                  alt={car.name}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0B1A33] to-transparent" />
+                <div
+                  className="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold"
+                  style={{ backgroundColor: car.tagColor + '30', color: car.tagColor, border: `1px solid ${car.tagColor}40` }}
+                >
+                  {car.tag}
+                </div>
               </div>
-              <h3 className="text-white font-bold text-lg mb-1">{car.name}</h3>
-              <p className="text-[#E6A817] text-sm mb-3 flex items-center gap-1">
-                <Icon name="Users" size={14} />
-                {car.seats}
-              </p>
-              <ul className="space-y-1.5">
-                {car.features.map((f, i) => (
-                  <li key={i} className="flex items-center gap-2 text-white/60 text-sm">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#E6A817]" />
-                    {f}
-                  </li>
-                ))}
-              </ul>
+              <div className="p-4">
+                <h3 className="text-white font-bold text-lg mb-1">{car.name}</h3>
+                <p className="text-[#E6A817] text-sm mb-2 flex items-center gap-1">
+                  <Icon name="Users" size={14} />
+                  {car.seats}
+                </p>
+                <ul className="space-y-1">
+                  {car.features.map((f, i) => (
+                    <li key={i} className="flex items-center gap-2 text-white/60 text-sm">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#E6A817]" />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           ))}
         </div>

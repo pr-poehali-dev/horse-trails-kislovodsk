@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Icon from '@/components/ui/icon';
 
 const reasons = [
@@ -161,7 +162,5 @@ const FaqItem = ({ q, a }: { q: string; a: string }) => {
     </div>
   );
 };
-
-import { useState } from 'react';
 
 export default WhyUs;
